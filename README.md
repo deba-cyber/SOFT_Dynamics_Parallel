@@ -19,8 +19,7 @@ from linear combination of eigenstates calculated beforehand or
 direct product state from quantum of excitations in different 
 vibrational modes in a multidimensional vibrational problem. 
 
-# The dynamics code can be used separately from initial state preparation code
-(separate targets are there for initial state preparation and dynamics in the Makefile)
+# The dynamics code can be used separately from initial state preparation code (separate targets are there for initial state preparation and dynamics in the Makefile)
 
 # To run dynamics code with initial state prepared differently, file containing initial state values is to be there in "input_data" folder in binary/text format. 
 
@@ -269,7 +268,7 @@ vibrational modes in a multidimensional vibrational problem.
 	anal_outbinfile_imag	==> filename for saving imaginary part of the wave packet during analytical dynamics.
 
 
-###---------------------------------------###
+*************************************************************
 
 ## How to run
 
@@ -288,28 +287,19 @@ vibrational modes in a multidimensional vibrational problem.
 	make clean
 
 ## For initial state preparation :
-
 	make init.exe (Prepared initial state will be saved in **input_data**)	
 	make move (moving executables to **bin** folder)
 
 
-## For running the dynamics :
-
+# For running the dynamics :
 	make dyn.exe
-	make move (moving executables to **bin** folder)
-
-###---------------------------------------###
-###---------------------------------------###
-###---------------------------------------###
-###---------------------------------------###
+	make move (moving executables to "bin" folder)
 
 
-##-------------------------------------------------------------------##
-## author 
+# Author 
 
-	Debabrata Bhattacharyya (debabratab@iisc.ac.in & deba.bhat.90@gmail.com)
+Debabrata Bhattacharyya (debabratab@iisc.ac.in & deba.bhat.90@gmail.com)
 
-##-------------------------------------------------------------------##
 
 
 
