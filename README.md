@@ -4,11 +4,9 @@
 
 # Language = C++ (C++17 dependencies)
 
-###---------------------------------------###
+# Overview 
 
-## overview 
-
-**SOFT_dynamics** calculates wave packet dynamics based on 
+**SOFT_dynamics_Parallel** calculates wave packet dynamics based on 
 Split-Operator Fourier Transform method.
 (Hence can be used for a rectilinear normal coordinate system 
  and an orthogonal curvilinear coordinate system.
