@@ -14,6 +14,10 @@ Split-Operator Fourier Transform method.
  dynamics routines are to be modified for the diagonal scale 
  factors.)
 
+Wave packet dynamics is processed on the fly. Some calculations are specific 
+to the particular problem I solved, which is tunneling dynamics in double well 
+potential in "Catecholate Monoanion".
+
 **SOFT_dynamics_Parallel** also calculates initial vibrational wave packet
 from linear combination of eigenstates calculated beforehand or 
 direct product state from quantum of excitations in different 
