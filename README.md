@@ -2,7 +2,7 @@
 
 # This is a header only library
 
-# Language = C++ (C++17 dependencies)
+# Language = C++ (C++17 dependencies)[Parallelized with OpenMP]
 
 # Overview 
 
