@@ -1,0 +1,112 @@
+#!/bin/bash
+#PBS -j oe -m n -q x2680v4 -l nodes=1:ppn=12 -l walltime=48:00:00
+
+# Submit this script as
+#   qsub -v RUNTYPE=XX [-N jobname] wpsoft.pbs
+# where XX = init, dyn, an
+# -N jobname is optional; useful if multiple jobs are running at once.
+# Add -l walltime=d:h:m:s if needed
+
+# This ends to be given in the qsub command
+if [ -z "$RUNTYPE" ]; then
+	echo "RUNTYPE not specified. Needs to be init, dyn, an"
+	exit 1
+fi
+
+case $RUNTYPE in
+	dyn ) EXEC="dyn_3D_case14.exe";;
+	init) EXEC="init_3D_parallel.exe";;
+	an  ) EXEC="testanal.exe";;
+	*   ) echo "RUNTYPE invalid. Needs to be init, dyn or an. Exiting."; exit 1 ;; 
+esac
+
+
+# Files in input_data to be copied
+# ------
+# Modify these as needed
+HERMITE="Gauss_Hermite_nodes.dat Gauss_Hermite_weights.dat" 
+SODVR_PTS=$(echo sodvr_pts_{1,10,29}.dat)
+SODVR_TO_ANH=$(echo sodvr_2_anharm_{1,10,29}.dat)
+ANH_TO_PODVR=$(echo anharm_2_podvr_{1,10,29}.dat)
+ANHEIGS="Eigenvectors_1_10_29_3d_18_17_7_size.dat" # Eigvals_1_10_twodim_18_17_size.dat"
+POTFILE="Potential_3D_extended_bound_chk.bin"
+INITWP="Q1_Q10_Q29_init_case14.bin"
+QUANTA="3D_quanta_arr_dyn.dat"
+ANHBASIS=$(echo Q{1,10,29}_anhbasis_val_3D_dyn.dat)
+# Final copy list is all the above
+COPYIN="$HERMITE $SODVR_PTS $SODVR_TO_ANH $ANH_TO_PODVR $ANHEIGS  $POTFILE
+$INITWP $QUANTA $ANHBASIS"
+
+# Make the job run directory and subdirectories
+# -----------
+nn=`expr index $PBS_JOBID '.'` # Extract the job number from PBS_JOBID
+JOBNUM=${PBS_JOBID:0:$(($nn-1))}
+unset nn
+RUNDIR=/scratch/$USER/wp/PBS_$JOBNUM
+mkdir -p $RUNDIR
+mkdir $RUNDIR/bin $RUNDIR/input_data $RUNDIR/output_data
+
+
+
+# Copy files in
+# -----------
+echo -n "On node: "; hostname
+echo "---------------"
+cd $PBS_O_WORKDIR # Go to the directory where the job was launched
+
+export OMP_NUM_THREADS=12
+
+cp bin/$EXEC $RUNDIR/bin
+echo "Copied the binary $EXEC to bin/" 
+cd input_data
+echo "Copying data files to input_data/"
+for j in $COPYIN; do
+	if [ ! -f $j ]; then
+		echo "Oops! Files $j doesn't exist. Perhaps an error in the file name?"
+		echo "Exiting"
+		exit 1
+	fi
+	cp -p $j $RUNDIR/input_data
+	echo "  Copied $j"
+done
+cd ..
+
+# Run job
+# -----------
+source /opt/rh/devtoolset-8/enable # CRITICAL
+#gcc -v
+echo "---------------"
+echo "Copying complete. Starting run."
+echo -n "Start  : "; date
+echo "---------------"
+cd $RUNDIR # In the job directory
+cd bin
+time ./$EXEC 
+cd ..
+echo "---------------"
+echo -n "End    : "; date
+
+echo "$EXEC"
+
+dynstr="dyn_3D_case14.exe"
+initstr="init_3D_parallel.exe"
+teststr="testanal.exe"
+
+# Copy results back
+# -----------
+#WARNING: Files may get overwritten if they have the same name.
+#So you need to ensure name uniqueness.
+if [[ "$EXEC" != "$initstr" ]]; then
+	cp -p output_data/Q1_Q10_Q29_* $PBS_O_WORKDIR/output_data
+	echo "copying output files to output_data folder in work directory"
+else
+	cp -p input_data/3D* $PBS_O_WORKDIR/input_data
+	echo "copying initial state to input_data folder in work directory"
+fi
+
+
+# Job complete ... cleanup
+cd ..
+rm -rf PBS_$JOBNUM
+
+# EOF #
