@@ -1,10 +1,8 @@
-# Wave packet dynamics routine based on Split-Operator Fourier Transform method
+# Wave packet dynamics routine based on Split-Operator Fourier Transform method : Parallel version with OpenMP
 
-## **SOFT_dynamics** is a  header-only library
+# This is a header only library
 
-## Language = c++ (-std=c++17 dependencies)
-
-## Requirement = c++17 compatible environment
+# Language = C++ (C++17 dependencies)
 
 ###---------------------------------------###
 
