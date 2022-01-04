@@ -1,0 +1,12 @@
+psi_dyn_anal_imag.bin
+2 surface analytical
+10201  
+-4.0 4.0	$Q_{1}$ 
+-4.0 4.0	$Q_{10}$
+101 101
+/home/nemo/Desktop/SOFT_dynamics_caln/twodim/
+Q1_Q10_dyn_1_2_anal_surf_imag.mp4
+Q1_Q10_soft_dyn_stepno_
+50 100 150 200 250 300 350 400 450 500 550 600 650 700 750 800 850 900 950 1000 
+1
+0.2

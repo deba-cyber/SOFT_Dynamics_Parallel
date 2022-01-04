@@ -1,0 +1,53 @@
+"binary_fileops.py" ==> file for processing binary file generated from
+dynamics.
+
+function `get_data_from_bin' creates animation for 1d/2d figures.
+Two dimensional figure can be surface/contour.
+
+Necessary inputs are to be provided in file "process_bin.inp"
+
+1. first line ==> binary file name
+
+2. second line ==> dimension| plottype | calculation type
+
+	plottype can be surface/contour for two dimensional case.
+
+3. Third line ==> Total number of data points.
+
+4. Fourth line ==> For slow coordinate in plotting 
+					
+					lower limit | upper limit | axis label
+
+5. Fifth line ==> For fast coordinate in plotting 
+					
+					lower limit | upper limit | axis label
+
+6. Sixth line ==> 
+data points in slow coordinate | data points in fast coordinate
+
+7. seventh line ==> location where animation/pdfs for figures will be saved.
+
+8. eighth line ==> animation filename
+
+9. Ninth line ==> pdf file names without index which is coded.
+
+
+10.10-th line gives the timesteps for which data were saved in binary file.
+	In general, data can be saved for a large number of times and only a few
+	frames may be necessary for animation.
+	This code is not flexible to do that. Assumtion is number of times data 
+	are saved is still small such that animation wouldn't be time-consuming 
+	for practical purposes.
+	If data were saved after every n-th step then 10-th line will contain only 
+	one element.
+	Else, all the timesteps are provided.
+
+	For analytical calculation in Q1-Q10, 
+	{10,50,100,150,200,250,300,400,500.600.750,900,1000} times are used (in
+	femto second)
+
+11.	11-th line ==> frames per second
+12. 12-th line ==> time-step( for analytical calculation, use time-step 0.2)
+
+
+
