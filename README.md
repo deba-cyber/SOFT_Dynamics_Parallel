@@ -14,19 +14,17 @@ Split-Operator Fourier Transform method.
  dynamics routines are to be modified for the diagonal scale 
  factors.)
 
-**SOFT_dynamics** also calculates initial vibrational wave packet
+**SOFT_dynamics_Parallel** also calculates initial vibrational wave packet
 from linear combination of eigenstates calculated beforehand or 
-direct product state from quanta of excitations in different 
+direct product state from quantum of excitations in different 
 vibrational modes in a multidimensional vibrational problem. 
 
-## The dynamics code can be used separately from initial state preparation code
-	(separate targets are there for initial state preparation and dynamics in the Makefile)
+# The dynamics code can be used separately from initial state preparation code
+(separate targets are there for initial state preparation and dynamics in the Makefile)
 
-## To run dynamics code with initial state prepared differently, file 
-	containing initial state values is to be there in **input_data** folder
-	in binary or text format. 
+# To run dynamics code with initial state prepared differently, file containing initial state values is to be there in "input_data" folder in binary/text format. 
 
-## In the inputs given in **include/SOFT/constants.hpp** and **src/constants.cpp**
+# In the inputs given in **include/SOFT/constants.hpp** and **src/constants.cpp**
 	are specific to the problem I have worked on which uses initial state preparation 
 	and dynamics in dimension-less normal coordinates. 
 	The routines can be used in problems with the kinds of coordinate systems mentioned 
