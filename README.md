@@ -1,6 +1,4 @@
-###---------------------------------------###
-				SOFT 
-	(Split-Operator Fourier Transform)
+# Wave packet dynamics routine based on Split-Operator Fourier Transform method
 
 ## **SOFT_dynamics** is a  header-only library
 
