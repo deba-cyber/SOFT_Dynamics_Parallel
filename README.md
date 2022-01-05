@@ -14,24 +14,26 @@ Split-Operator Fourier Transform method.
  dynamics routines are to be modified for the diagonal scale 
  factors.)
 
-Wave packet dynamics is processed on the fly. Some calculations are specific 
+Wave packet dynamics analysis is done on the fly. Some calculations are specific 
 to the particular problem I solved, which is tunneling dynamics in double well 
 potential in "Catecholate Monoanion".
 
 **SOFT_dynamics_Parallel** also calculates initial vibrational wave packet
-from linear combination of eigenstates calculated beforehand or 
+from linear combination of eigenstates calculated beforehand for a given Hamiltonian or 
 direct product state from quantum of excitations in different 
 vibrational modes in a multidimensional vibrational problem. 
 
 # The dynamics code can be used separately from initial state preparation code (separate targets are there for initial state preparation and dynamics in the Makefile)
 
+******************************************************************************************************
+******************************************************************************************************
+
 # To run dynamics code with initial state prepared differently, file containing initial state values is to be there in "input_data" folder in binary/text format. 
 
 # In the inputs given in **include/SOFT/constants.hpp** and **src/constants.cpp**
-	are specific to the problem I have worked on which uses initial state preparation 
-	and dynamics in dimension-less normal coordinates. 
-	The routines can be used in problems with the kinds of coordinate systems mentioned 
-	earlier.
+[are specific to the problem I have worked on which uses initial state preparation 
+and dynamics in dimension-less normal coordinates. The routines can be used in problems with the kinds of coordinate systems mentioned 
+earlier.]
 		
 ## **include/SOFT** contains the headers. 
 ## **src** contains the corresponding source files and files with the main function
@@ -41,7 +43,9 @@ vibrational modes in a multidimensional vibrational problem.
 
 ## For general use, necessary routines are in **include/SOFT** and **src** folders.
 
-###---------------------------------------###
+******************************************************************************************************
+******************************************************************************************************
+
 
 ## Units :
 ## Dimension-less normal coordinates were used for the calculation
