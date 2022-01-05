@@ -15,7 +15,7 @@ Split-Operator Fourier Transform method.
  factors.)
 
 Wave packet dynamics analysis is done on the fly. Some calculations are specific 
-to the particular problem I solved, which is tunneling dynamics in double well 
+to the particular problem I solved during my PhD, which is tunneling dynamics in double well 
 potential in "Catecholate Monoanion".
 
 **SOFT_dynamics_Parallel** also calculates initial vibrational wave packet
