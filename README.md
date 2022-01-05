@@ -29,7 +29,7 @@ direct product states. That calculation is parallelized.
 
 The analysis of the evolving wave packet is specific to 3 dimensional calculation. For the tunneling dynamics of Catecholate Monoanion that 
 I worked on, 3 modes, namely, Q1, Q10, Q29 are considered in the calculation. The dynamics run is general and few more analysis routines can be 
-added for 4 dimensional calculation.
+added for 4 dimensional calculation. The normal modes specific to Catecholate Monoanion are shown in figure fig2_all_vibs.pdf(link provided below).
 
 ![alt text](https://github.com/deba-cyber/SOFT_Dynamics_Parallel/blob/main/fig2_allvibs.pdf)
 
