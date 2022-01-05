@@ -30,33 +30,27 @@ vibrational modes in a multidimensional vibrational problem.
 
 # To run dynamics code with initial state prepared differently, file containing initial state values is to be there in "input_data" folder in binary/text format. 
 
-# In the inputs given in **include/SOFT/constants.hpp** and **src/constants.cpp**
-[are specific to the problem I have worked on which uses initial state preparation 
+# In the inputs given in **include/SOFT/constants.hpp** and **src/constants.cpp**[are specific to the problem I have worked on which uses initial state preparation 
 and dynamics in dimension-less normal coordinates. The routines can be used in problems with the kinds of coordinate systems mentioned 
 earlier.]
 		
-## **include/SOFT** contains the headers. 
-## **src** contains the corresponding source files and files with the main function
-## **test** is the folder for testing the numerical accuracy of the calculation with 
+# **include/SOFT** contains the headers. 
+# **src** contains the corresponding source files and files with the main function
+# **test** is the folder for testing the numerical accuracy of the calculation with 
 			testing with wave packet prepared from linear combination of eigenstates
 			and hence analytical time-evolution was possible.
 
 ## For general use, necessary routines are in **include/SOFT** and **src** folders.
 
 ******************************************************************************************************
-******************************************************************************************************
 
+# Units :
+# Dimension-less normal coordinates were used for the calculation
+# Potential energy is in wavenumber unit. 
 
-## Units :
-## Dimension-less normal coordinates were used for the calculation
-## Potential energy is in wavenumber unit. 
+# For initial state preparation, the following scheme is used (useful for rectilinear normal coordinates in vibrational problems)
 
-## For initial state preparation, the following scheme is used 
-	(useful for rectilinear normal coordinates in vibrational
-	problems)
-
-	primitive DVR
-	(discrete variable representation, Hermite-DVR/sinc-DVR is used)==> (One dimensional basis functions) ==> PODVR(Potential optimised DVR)
+***primitive DVR (discrete variable representation, Hermite-DVR/sinc-DVR is used)==> (One dimensional basis functions) ==> PODVR(Potential optimised DVR)***
 
 ###---------------------------------------###
 
