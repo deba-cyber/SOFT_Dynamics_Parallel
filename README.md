@@ -31,7 +31,7 @@ The analysis of the evolving wave packet is specific to 3 dimensional calculatio
 I worked on, 3 modes, namely, Q1, Q10, Q29 are considered in the calculation. The dynamics run is general and few more analysis routines can be 
 added for 4 dimensional calculation.
 
-![alt text](https://github.com/deba-cyber/SOFT_Dynamics_Parallel/blob/[branch]/.jpg?raw=true)
+![alt text](https://github.com/deba-cyber/SOFT_Dynamics_Parallel/blob/[branch]/fig2_all_vibs.pdf?raw=true)
 
 
 **SOFT_dynamics_Parallel** also calculates initial vibrational wave packet
