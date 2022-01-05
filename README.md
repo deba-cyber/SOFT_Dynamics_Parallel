@@ -27,7 +27,9 @@ For dynamics part, the FFT part is parallelized with OpenMP.
 For the one of the calculations regarding analysis of evolving wave packet of dynamics, wave packet at a given time is decomposed in terms of 
 direct product states. That calculation is parallelized.
 
-The analysis of the evolving wave packet is specific to 3 dimensional calculation. For the 
+The analysis of the evolving wave packet is specific to 3 dimensional calculation. For the tunneling dynamics of Catecholate Monoanion that 
+I worked on, 3 modes, namely, Q1, Q10, Q29 are considered in the calculation. The dynamics run is general and few more analysis routines can be 
+added for 4 dimensional calculation.
 
 **SOFT_dynamics_Parallel** also calculates initial vibrational wave packet
 from linear combination of eigenstates calculated beforehand for a given Hamiltonian or 
