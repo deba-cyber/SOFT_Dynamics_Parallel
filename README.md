@@ -34,9 +34,7 @@ vibrational modes in a multidimensional vibrational problem.
 		
 # **include/SOFT** contains the headers. 
 # **src** contains the corresponding source files and files with the main function
-# **test** is the folder for testing the numerical accuracy of the calculation with 
-			testing with wave packet prepared from linear combination of eigenstates
-			and hence analytical time-evolution was possible.
+# **test** is the folder for testing the numerical accuracy of the calculation with testing with wave packet prepared from linear combination of eigenstates and hence analytical time-evolution was possible.
 
 ## For general use, necessary routines are in **include/SOFT** and **src** folders.
 
