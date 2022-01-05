@@ -25,7 +25,9 @@ meshgrid is parallelized with OpenMP.
 
 For dynamics part, the FFT part is parallelized with OpenMP.
 For the one of the calculations regarding analysis of evolving wave packet of dynamics, wave packet at a given time is decomposed in terms of 
-direct product states. Calculation 
+direct product states. That calculation is parallelized.
+
+The analysis of the evolving wave packet is specific to 3 dimensional calculation. For the 
 
 **SOFT_dynamics_Parallel** also calculates initial vibrational wave packet
 from linear combination of eigenstates calculated beforehand for a given Hamiltonian or 
