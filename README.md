@@ -18,6 +18,15 @@ Wave packet dynamics analysis is done on the fly. Some calculations are specific
 to the particular problem I solved during my PhD, which is tunneling dynamics in double well 
 potential in "Catecholate Monoanion".
 
+*** Parallelisation ***
+Parallelisation is done in initial state generation and in the dynamics part.
+For initial state generation, total number of elements in the multidimensional 
+meshgrid is parallelized with OpenMP.
+
+For dynamics part, the FFT part is parallelized with OpenMP.
+For the one of the calculations regarding analysis of evolving wave packet of dynamics, wave packet at a given time is decomposed in terms of 
+direct product states. Calculation 
+
 **SOFT_dynamics_Parallel** also calculates initial vibrational wave packet
 from linear combination of eigenstates calculated beforehand for a given Hamiltonian or 
 direct product state from quantum of excitations in different 
