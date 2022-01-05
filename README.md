@@ -30,9 +30,7 @@ vibrational modes in a multidimensional vibrational problem.
 
 # To run dynamics code with initial state prepared differently, file containing initial state values is to be there in "input_data" folder in binary/text format. 
 
-# In the inputs given in **include/SOFT/constants.hpp** and **src/constants.cpp**[are specific to the problem I have worked on which uses initial state preparation 
-and dynamics in dimension-less normal coordinates. The routines can be used in problems with the kinds of coordinate systems mentioned 
-earlier.]
+# In the inputs given in **include/SOFT/constants.hpp** and **src/constants.cpp**[are specific to the problem I have worked on which uses initial state preparation and dynamics in dimension-less normal coordinates. The routines can be used in problems with the kinds of coordinate systems mentioned earlier.]
 		
 # **include/SOFT** contains the headers. 
 # **src** contains the corresponding source files and files with the main function
