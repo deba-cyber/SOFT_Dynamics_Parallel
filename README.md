@@ -82,38 +82,27 @@ vibrational modes in a multidimensional vibrational problem.
 
 # coeff_size_max ==> maximum number of eigenstates taken for initial state preparation when linear combination of eigenstates is used for initial state.
 
-	NDIM_4_WP_INIT ==> Number of coordinates in the initial state.
+# NDIM_4_WP_INIT ==> Number of coordinates in the initial state.
 
-	NDIM_4_DYNAMICS ==> Number of coordinates for dynamics.
+# NDIM_4_DYNAMICS ==> Number of coordinates for dynamics.
 
-	{Dynamics dimension may be less than dimension of the wave function.
-		For example, one may be interested in dynamics in (x,y) grid at constant value of 
-		z; then grid dimension is direct product of sizes in x,y; but wave function 
-		is 3-dimensional (x,y,z)}
 
-	dyn_type ==> Information if dynamics type is **TUNNELING** or **IVR**
-				if initial state is prepared from linear combination of eigenstates,
-				write **TUNNELING**
-				else if initial state is direct product state from certain qunata of 
-				excitations in different coordinates, 
-				write **IVR**
+# dyn_type ==> Information if dynamics type is **TUNNELING** or **IVR** 
+{if initial state is prepared from linear combination of eigenstates, write **TUNNELING**
+ else if initial state is direct product state from certain qunata of excitations in different coordinates, write **IVR**
+ }
 
-	eigstate_srno_wp_tun_vect ==> eigenstate indices for linear combination is to be provided.
-									(1-based indexing)
+# eigstate_srno_wp_tun_vect ==> eigenstate indices for linear combination is to be provided. (1-based indexing)
 
-	coeff_4_wp_tun_vect	==> corresponding coefficients of eigenstates making up the initial 
-							wave packet is to be provided.
+# coeff_4_wp_tun_vect	==> corresponding coefficients of eigenstates making up the initial wave packet is to be provided.
+{Size of all these vectors is equal to NDIM_4_WP_INIT}
 
-	**(Size of all these vectors is equal to NDIM_4_WP_INIT)**
+# basis_size_vect	==> basis size for individual coordinates
 
-	basis_size_vect		==> basis size for individual coordinates
+# mode_id_vect		==> Normal mode indices (1-based indexing)(give in increasing order)
+{basis_size_vect & mode_id_vect elements has one-to-one correspondence.}
 
-	mode_id_vect		==> Normal mode indices (1-based indexing)(give in increasing order)
-
-	(basis_size_vect & mode_id_vect elements has one-to-one correspondence.)
-
-	## Following few constants are specific to the scheme used for 
-		initial state generation (DVR => 1-dim basis => PODVR) 
+**** Following few constants are specific to the scheme used for  *****
 
 	Q_shift_vect		==> Value of the local minimum for one dimensional 
 							basis calculation (non-zero value only for coordinates 
