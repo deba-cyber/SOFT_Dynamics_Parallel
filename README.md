@@ -64,22 +64,23 @@ vibrational modes in a multidimensional vibrational problem.
 
 ***primitive DVR (discrete variable representation, Hermite-DVR/sinc-DVR is used)==> (One dimensional basis functions) ==> PODVR(Potential optimised DVR)***
 
-###---------------------------------------###
 
 ** whenever a filename is to be given as input in **include/SOFT/constants.hpp** and/or **src/constants.cpp**
 	it should be given without the file extension (data will be processed using routines in 
 	**include/SOFT/fileops.hpp** and/or **src/fileops.cpp** which has the necessary extensions in the routines.)
 
-## Input instruction for preparing initial state :
+*******************************************************************************************************************
+*******************************************************************************************************************
 
-## Nothing to be changed in namespace **FUNDAMENTAL_CONST**
+# Input instruction for preparing initial state :
 
-## namespace **INIT_STATE_CONST**
+# Nothing to be changed in namespace **FUNDAMENTAL_CONST**
 
-	## All extern const types are to be given in corresponding source file **src/constants.cpp**
+# namespace **INIT_STATE_CONST**
 
-	coeff_size_max ==> maximum number of eigenstates taken for initial state preparation when
-						linear combination of eigenstates is used for initial state.
+# All extern const types are to be given in corresponding source file **src/constants.cpp**
+
+# coeff_size_max ==> maximum number of eigenstates taken for initial state preparation when linear combination of eigenstates is used for initial state.
 
 	NDIM_4_WP_INIT ==> Number of coordinates in the initial state.
 
