@@ -49,10 +49,10 @@ vibrational modes in a multidimensional vibrational problem.
 # In the inputs given in **include/SOFT/constants.hpp** and **src/constants.cpp** are specific to the problem I have worked on which uses initial state preparation and dynamics in dimension-less normal coordinates. The routines can be used in problems with the kinds of coordinate systems mentioned earlier.
 		
 # **include/SOFT** contains the headers. 
-# **src** contains the corresponding source files and files with the main function
+# **src** contains the corresponding source files and files with the main function for initial state preparation and dynamics.
 # **test** is the folder for testing the numerical accuracy of the calculation with testing with wave packet prepared from linear combination of eigenstates and hence analytical time-evolution was possible.
 
-## For general use, necessary routines are in **include/SOFT** and **src** folders.
+# For general use, necessary routines are in **include/SOFT** and **src** folders.
 
 ******************************************************************************************************
 
