@@ -164,120 +164,96 @@ values corresponding to other coordinates are to be given which are kept fixed f
 increasing order.)
 										
 
-		**Generating multidimensional grid when dynamics is carried out in 
-		a lower dimensional direct product grid than NDIM_4_WP_INIT
-		(e.g. in (x,y,z) generating (x,y) variations with constant z for all)**
+**Generating multidimensional grid when dynamics is carried out in a lower dimensional direct product grid than NDIM_4_WP_INIT (e.g. in (x,y,z) generating (x,y) variations with constant z for all)**
 
-		In this case => NDIM_4_WP_INIT should be equal to dimension of the wave function.
-					NDIM_4_DYNAMICS should be changed to what desired
-					no of dimension for direct product grid generation.
-					(i.e. should be changed to 2 when (x,y) grid is prepared
-					at constant z)
+{In this case => NDIM_4_WP_INIT should be equal to dimension of the wave function.NDIM_4_DYNAMICS should be changed to what desired no of dimension for direct product grid generation.(i.e. should be changed to 2 when (x,y) grid is prepared at constant z)
 
-		Input vectors "grid_low_dim_vect";"grid_up_dim_vect","grid_pt_vect"
-		are to be changed .. length of each of which equal to NDIM_4_DYNAMICS 
-		in **src/constants.cpp**
+# Input vectors "grid_low_dim_vect";"grid_up_dim_vect","grid_pt_vect" are to be changed .. length of each of which equal to NDIM_4_DYNAMICS in **src/constants.cpp**
 	
-		Input vector "meshgrid_4_dyn_mode" will contain relevant coordinates
-		e.g. (x,y) if those are taken for direct product grid generation.
-		Length of vector "other_coord_val_vect" again has to be equal to NDIM_4_WP_INIT
-		values of coordinate involved in dynamics has to be kept zero.
-		other coordinate values will be changed at the desired constant 
-		value.(location of different coordinates in the vector has one to 
-		one correspondence to vector "mode_id_vect".)
+{ Input vector "meshgrid_4_dyn_mode" will contain relevant coordinates e.g. (x,y) if those are taken for direct product grid generation.Length of vector "other_coord_val_vect" again has to be equal to NDIM_4_WP_INIT values of coordinate involved in dynamics has to be kept zero.
+other coordinate values will be changed at the desired constant value.(location of different coordinates in the vector has one to 
+one correspondence to vector "mode_id_vect".)}
 
 
-## Input instruction for doing wave packet dynamics :
-
-	timestep ==> step-size for dynamics (to be given in femtosecond based on current structure.)
-
-	stepno_vect_4_anal	==> vector containing step numbers for which analytical dynamics is to 
-							be carried out (for testing) 
-
-	max_step	==> maximum number of steps upto which dynamics will be carried out.
-
-	twopic		==> 2*pi*speed_of_light(in cm/femtosecond) 
-				(this is done for necessary unit consistency as energy unit 
-				was in wavenumber.
-				For general use, unit of choice can be used and routines in 
-				**src/TROTTER_prop.cpp** is to be changed for Split-operator 
-				dynamics.)
-
-	EYE		==> imaginary 'i'
-
-	step_4_file		==> every n-th step when evolved wave packet is to be saved to file.
-
-	step_4_restart	==> every n-th step when evolved wave packet is to be saved to file for restart (in case dynamics is terminated midway.)
-
-	eigvalfile		==> file containing multidimensional eigenvalues relevant to dynamics
-						(useful for testing with analytical evolution.)
-
-	eigstate_4_anal_dyn_file	==> filename for eigenvectors in the relevant multidimension.
-									(filenames are to be in the above style and relevant 
-									eigenvectors for **TUNNELING** dynamics will be taken 
-									using information in **eigstate_srno_wp_tun_vect**)
-
-	grid_pt_vect		==> vector containing number of points along each dimension.
-							(length has to be equal to dynamics dimension.)
+*******************************************************************************************************************
+*******************************************************************************************************************
 
 
-	grid_low_lim_vect	==> vector containing values of lower limit along each of the 
-							coordinates relevant to the dynamics.
+# Input instruction for doing wave packet dynamics :
 
-	grid_up_lim_vect	==> vector containing values of upper limit along each of the 
-							coordinates relevant to the dynamics.
+# timestep ==> step-size for dynamics (to be given in femtosecond based on current structure.)
 
-	freq_vect		==> vector containing frequencies of the coordinates relevant to the
-						dynamics in wavenumber unit.
+# stepno_vect_4_anal	==> vector containing step numbers for which analytical dynamics is to be carried out (for testing) 
 
-	initfiletype	==> whether potential file and initial wave function file are in binary/dat
-						form. (write "bin"/"dat" based on file type)
+# max_step		==> maximum number of steps upto which dynamics will be carried out.
 
-			** following are some filenames for saving output. Give filenames without extensions.
-				By default, saving will be done in binary format**
+# twopic		==> 2*pi*speed_of_light(in cm/femtosecond) (this is done for necessary unit consistency as energy unit was in wavenumber.For general use, unit of choice can be used and routines in **src/TROTTER_prop.cpp** is to be changed for Split-operator dynamics.)
 
-	potfile			==> name of the file containing potential values in the grid 
-						where dynamics will be carried out.
+# EYE			==> imaginary 'i'
 
-	initfile		==> name of the file containing initial state values.
+# step_4_file		==> every n-th step when evolved wave packet is to be saved to file.
 
-	restartoutbinfile	==> filename for saving wave packet for restart.
+# step_4_restart	==> every n-th step when evolved wave packet is to be saved to file for restart (in case dynamics is terminated midway.)
 
-	save_outbinfile		==>		filename for saving wave packet during the dynamics.
+# eigvalfile		==> file containing multidimensional eigenvalues relevant to dynamics(useful for testing with analytical evolution.)
 
-	anal_outbinfile_abs	==>		filename for saving absolute value of the wave packet during analytical dynamics.
+# eigstate_4_anal_dyn_file	==> filename for eigenvectors in the relevant multidimension.
+{filenames are to be in the above style and relevant eigenvectors for **TUNNELING** dynamics will be taken 
+using information in **eigstate_srno_wp_tun_vect**}
 
-	anal_outbinfile_real	==> filename for saving real part of the wave packet during analytical dynamics.
-
-	anal_outbinfile_imag	==> filename for saving imaginary part of the wave packet during analytical dynamics.
+# grid_pt_vect		==> vector containing number of points along each dimension.(length has to be equal to dynamics dimension.)
 
 
-*************************************************************
+# grid_low_lim_vect	==> vector containing values of lower limit along each of the coordinates relevant to the dynamics.
 
-## How to run
+# grid_up_lim_vect	==> vector containing values of upper limit along each of the coordinates relevant to the dynamics.
 
-## Run all executables from **bin** folder
+# freq_vect		==> vector containing frequencies of the coordinates relevant to the dynamics in wavenumber unit.
 
-## necessary inputs are to be changed in either **src/constants.cpp** and/or **include/SOFT/constants.hpp**
+# initfiletype		==> whether potential file and initial wave function file are in binary/dat form. (write "bin"/"dat" based on file type)
+{following are some filenames for saving output. Give filenames without extensions.By default, saving will be done in binary format}
 
-## Necessary input files are in folder **input_data**
+# potfile		==> name of the file containing potential values in the grid where dynamics will be carried out.
 
-## output files will be saved in **output_data** folder.
+# initfile		==> name of the file containing initial state values.
 
-## compilation
+# restartoutbinfile	==> filename for saving wave packet for restart.
 
-## Before any run :
+# save_outbinfile	==> filename for saving wave packet during the dynamics.
 
-	make clean
+# anal_outbinfile_abs	==> filename for saving absolute value of the wave packet during analytical dynamics.
 
-## For initial state preparation :
-	make init.exe (Prepared initial state will be saved in **input_data**)	
-	make move (moving executables to **bin** folder)
+# anal_outbinfile_real	==> filename for saving real part of the wave packet during analytical dynamics.
+
+# anal_outbinfile_imag	==> filename for saving imaginary part of the wave packet during analytical dynamics.
+
+
+*******************************************************************************************************************
+*******************************************************************************************************************
+
+
+# How to run
+
+# Run all executables from **bin** folder
+
+# necessary inputs are to be changed in either **src/constants.cpp** and/or **include/SOFT/constants.hpp**
+
+# Necessary input files are in folder **input_data**
+
+# output files will be saved in **output_data** folder.
+
+# compilation
+
+# Before any run :
+make clean
+
+# For initial state preparation :
+{make init.exe (Prepared initial state will be saved in **input_data**)	make move (moving executables to **bin** folder)}
 
 
 # For running the dynamics :
-	make dyn.exe
-	make move (moving executables to "bin" folder)
+{make dyn.exe
+make move (moving executables to "bin" folder)}
 
 
 # Author 
