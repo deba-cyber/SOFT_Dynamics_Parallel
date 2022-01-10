@@ -104,83 +104,64 @@ vibrational modes in a multidimensional vibrational problem.
 
 **** Following few constants are specific to the scheme used for  *****
 
-	Q_shift_vect		==> Value of the local minimum for one dimensional 
-							basis calculation (non-zero value only for coordinates 
-							for which Hermite-DVR is used.)
+# Q_shift_vect		==> Value of the local minimum for one dimensional basis calculation (non-zero value only for coordinates for which Hermite-DVR is used.)
 
-	dvr_type_vect(data type string)		==> For a particular mode, if primitive DVR is "HERMITE", write **HO**
-							if primtive DVR is "sinc", write **sinc**
+# dvr_type_vect(data type string)		==> For a particular mode, if primitive DVR is "HERMITE", write **HO** if primtive DVR is "sinc", write **sinc**
 
-	##	(In the scheme for getting 1-dimensional PODVR basis functions, few transformation matrices are 
-			required,following are information about number of rows and columns for different such transformations).
+# (In the scheme for getting 1-dimensional PODVR basis functions, few transformation matrices are required,following are information about number of rows and columns for different such transformations).
 
-	n_row_so_2_anh_vect		==>	vector containing number of rows for different transformation matrices from 
-								primitive DVR ==> 1-dim basis functions
+# n_row_so_2_anh_vect		==>	vector containing number of rows for different transformation matrices from primitive DVR ==> 1-dim basis functions
 
-	n_col_so_2_anh_vect		==>	vector containing number of columns for different transformation matrices from
-								primitive DVR ==> 1-dim basis functions
+# n_col_so_2_anh_vect		==>	vector containing number of columns for different transformation matrices from primitive DVR ==> 1-dim basis functions
 
-	n_row_anh_2_po_vect		==> vector containing number of rows for different transformation matrices from 
-								1-dim basis => PODVR function.
+# n_row_anh_2_po_vect		==> vector containing number of rows for different transformation matrices from 1-dim basis => PODVR function.
 
-	n_col_anh_2_po_vect		==>	vector containing number of columns for different transformation matrices from
-								1-dim basis => PODVR function.
+# n_col_anh_2_po_vect		==>	vector containing number of columns for different transformation matrices from 1-dim basis => PODVR function.
 
-	tot_prim_dvr_pts		==> total number of primitive DVR points after summing up for all coordinates in the 
-								initial state preparation.
+# tot_prim_dvr_pts		==> total number of primitive DVR points after summing up for all coordinates in the initial state preparation.
 
-	sodvr_2_anharm_file		==> filename corresponding to transformation matrix for primitive DVR => 1-dim basis 
+# sodvr_2_anharm_file		==> filename corresponding to transformation matrix for primitive DVR => 1-dim basis 
 
-	anharm_2_podvr_file		==> filename corresponding to transformation matrix for 1-dim function => PODVR function
+# anharm_2_podvr_file		==> filename corresponding to transformation matrix for 1-dim function => PODVR function
 	
-	multidim_eigvect_filestring		==> filename corresponding to eigenvector matrix for multidimensional eigenstate 
-										calculation (relevant for initial state prepared from linear combination of
-										eigenstates.
+# multidim_eigvect_filestring		==> filename corresponding to eigenvector matrix for multidimensional eigenstate calculation (relevant for initial state prepared from linear combination of eigenstates.)
 	
-	IVR_init_quanta_vect		==> vector containing quanta of excitation in different coordinates (relevant for 
-									initial state prepared as direct product from quanta of excitation in different
-									coordinates.
+# IVR_init_quanta_vect		==> vector containing quanta of excitation in different coordinates (relevant for initial state prepared as direct product from quanta of excitation in different coordinates.)
 
-		(Following two input constant vectors are relevant for multidimensional grid preparation.
-		As hinted earlier,dynamics can be done in a dimension lower than dimension of the wave function.
-		 generating direct product grid in the dynamics dimension e.g. (x,y,z) .. 
-		 when full dimensional direct product grid is prepared ..
-		In "constants.hpp" NDIM_4_WP_INIT and NDIM_4_DYNAMICS should be equl in this case and equal to desired dimension.
-		Input vectors for lower range, upper range & no of points for multidimensional grid are to be modified. 
-		For direct product grid in the dynamics dimension,length of the lower range,upper range and no of points 
-		vectors have to be equal to dimension of dynamics.)
+{Following two input constant vectors are relevant for multidimensional grid preparation.
+As hinted earlier,dynamics can be done in a dimension lower than dimension of the wave function.
+generating direct product grid in the dynamics dimension e.g. (x,y,z) .. 
+when full dimensional direct product grid is prepared ..
+In "constants.hpp" NDIM_4_WP_INIT and NDIM_4_DYNAMICS should be equl in this case and equal to desired dimension.
+Input vectors for lower range, upper range & no of points for multidimensional grid are to be modified. 
+For direct product grid in the dynamics dimension,length of the lower range,upper range and no of points 
+vectors have to be equal to dimension of dynamics.}
 	
-		**To be changed in "constants.cpp" in namespace DYN_CONST**
 
-		lower range ==> "grid_low_dim_vect";  
-		upper range ==> "grid_up_dim_vect";  
-		no of points ==>"grid_pt_vect";
+*******************************************************************************************************************
+*******************************************************************************************************************
+
+**To be changed in "constants.cpp" in namespace DYN_CONST**
+
+# lower range ==> "grid_low_dim_vect";  
+# upper range ==> "grid_up_dim_vect";  
+# no of points ==>"grid_pt_vect";
 	
-	In namespace INIT_STATE_CONST in "constants.cpp"
-	"meshgrid_4_dyn_mode" normal mode numbers are to be given relevant 
-	to the dynamics.
-	(For dynamics in direct product grid in dynamics dimension, length of 
-	this vector has to be equal to dynamics dimension.)
-	Length of vector other_coord_val_vect has to be equal to dynamics dimension
-	and for this case, all elements are to be zero (i.e. for N-dimensional 
-	direct product grid where `N' is dynamics dimension)
+{In namespace INIT_STATE_CONST in "constants.cpp"
+"meshgrid_4_dyn_mode" normal mode numbers are to be given relevant 
+to the dynamics.(For dynamics in direct product grid in dynamics dimension, length of this vector has to be equal to dynamics dimension.)
+Length of vector other_coord_val_vect has to be equal to dynamics dimension
+and for this case, all elements are to be zero (i.e. for N-dimensional 
+direct product grid where 'N' is dynamics dimension)}
 
-	other_coord_val_vect		==> vector containing values of coordinates 
-									which may have been kept fixed.
-									length of this vector is equal to NDIM_4_WP_INIT
-									if dynamics dimension is equal to dimension of the 
-									initial wave packet, all elements of this vector 
-									has to be zero.
-									if dynamics dimension is lower than dimension 
-									of the initial wave packet, values corresponding
-									to dynamics coordinates are to be kept zero.
-									values corresponding to other coordinates are to 
-									be given which are kept fixed for dynamics.
+# other_coord_val_vect		==> vector containing values of coordinates which may have been kept fixed.length of this vector is equal to NDIM_4_WP_INIT
+{if dynamics dimension is equal to dimension of the initial wave packet, all elements of this vector has to be zero.
+if dynamics dimension is lower than dimension of the initial wave packet, values corresponding to dynamics coordinates are to be kept zero.
+values corresponding to other coordinates are to be given which are kept fixed for dynamics.}
 
-	meshgrid_4_dyn_mode			==> Normal mode indices in which dynamics is carried out.
-									(length to be equal to dynamics dimension.
-									only modes in the dynamics are to be given in
-									increasing order.)
+# meshgrid_4_dyn_mode		==> Normal mode indices in which dynamics is carried out.
+(length to be equal to dynamics dimension.only modes in the dynamics are to be given in
+increasing order.)
 										
 
 		**Generating multidimensional grid when dynamics is carried out in 
@@ -205,7 +186,6 @@ vibrational modes in a multidimensional vibrational problem.
 		value.(location of different coordinates in the vector has one to 
 		one correspondence to vector "mode_id_vect".)
 
-###---------------------------------------###
 
 ## Input instruction for doing wave packet dynamics :
 
